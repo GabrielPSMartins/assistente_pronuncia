@@ -1,0 +1,4 @@
+openai-whisper>=20250625
+gTTS>=2.5.4
+sounddevice>=0.5.6
+soundfile>=0.14.0
