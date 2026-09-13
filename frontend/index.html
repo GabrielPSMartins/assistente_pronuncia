@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistente de Pronúncia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Assistente de Pronúncia</h1>
+    <p class="subtitulo">Grave sua fala em inglês, veja o que foi entendido e ouça a pronúncia nativa.</p>
+
+    <div class="gravacao">
+      <button id="btn-gravar" type="button">Gravar</button>
+      <span id="status" class="status">Pronto para gravar</span>
+    </div>
+
+    <section id="resultado" class="resultado" hidden>
+      <h2>O que foi entendido</h2>
+      <p id="texto-transcrito"></p>
+
+      <div id="area-feedback" hidden>
+        <h2>Pronúncia nativa</h2>
+        <audio id="audio-feedback" controls autoplay></audio>
+      </div>
+    </section>
+
+    <p id="erro" class="erro" hidden></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

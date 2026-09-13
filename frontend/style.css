@@ -1,0 +1,131 @@
+:root {
+  color-scheme: light dark;
+  --cor-fundo: #f4f5f7;
+  --cor-cartao: #ffffff;
+  --cor-texto: #1f2430;
+  --cor-texto-suave: #5b6272;
+  --cor-primaria: #2563eb;
+  --cor-primaria-hover: #1d4ed8;
+  --cor-gravando: #dc2626;
+  --cor-erro: #b91c1c;
+  --cor-erro-fundo: #fee2e2;
+  --cor-borda: #e2e5eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cor-fundo: #14161c;
+    --cor-cartao: #1e212b;
+    --cor-texto: #f1f2f5;
+    --cor-texto-suave: #a3a9b7;
+    --cor-borda: #2c3040;
+    --cor-erro-fundo: #3a1414;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--cor-cartao);
+  border: 1px solid var(--cor-borda);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+}
+
+.subtitulo {
+  margin: 0 0 24px;
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+}
+
+.gravacao {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+#btn-gravar {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--cor-primaria);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+#btn-gravar:hover {
+  background: var(--cor-primaria-hover);
+}
+
+#btn-gravar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#btn-gravar.gravando {
+  background: var(--cor-gravando);
+}
+
+.status {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.resultado {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.resultado h2 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+#texto-transcrito {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+#area-feedback {
+  margin-top: 20px;
+}
+
+audio {
+  width: 100%;
+}
+
+.erro {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--cor-erro-fundo);
+  color: var(--cor-erro);
+  font-size: 0.9rem;
+}
