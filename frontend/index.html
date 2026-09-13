@@ -7,27 +7,78 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="card">
-    <h1>Assistente de Pronúncia</h1>
-    <p class="subtitulo">Grave sua fala em inglês, veja o que foi entendido e ouça a pronúncia nativa.</p>
-
-    <div class="gravacao">
-      <button id="btn-gravar" type="button">Gravar</button>
-      <span id="status" class="status">Pronto para gravar</span>
-    </div>
-
-    <section id="resultado" class="resultado" hidden>
-      <h2>O que foi entendido</h2>
-      <p id="texto-transcrito"></p>
-
-      <div id="area-feedback" hidden>
-        <h2>Pronúncia nativa</h2>
-        <audio id="audio-feedback" controls autoplay></audio>
+  <div class="app">
+    <header class="topo">
+      <div class="logo" aria-hidden="true">🎙️</div>
+      <div>
+        <h1>Assistente de Pronúncia</h1>
+        <p class="subtitulo">Grave sua fala em inglês, veja o que foi entendido e ouça a pronúncia nativa.</p>
       </div>
-    </section>
+    </header>
 
-    <p id="erro" class="erro" hidden></p>
-  </main>
+    <ol class="etapas" id="etapas">
+      <li class="etapa" data-etapa="preparar">
+        <span class="numero">1</span>
+        <span class="rotulo">Preparar</span>
+      </li>
+      <li class="etapa" data-etapa="gravar">
+        <span class="numero">2</span>
+        <span class="rotulo">Gravar</span>
+      </li>
+      <li class="etapa" data-etapa="analisar">
+        <span class="numero">3</span>
+        <span class="rotulo">Analisar</span>
+      </li>
+      <li class="etapa" data-etapa="resultado">
+        <span class="numero">4</span>
+        <span class="rotulo">Resultado</span>
+      </li>
+    </ol>
+
+    <main class="painel">
+      <section id="tela-preparar" class="tela">
+        <div class="icone-etapa">🎤</div>
+        <h2>Vamos começar</h2>
+        <p>Precisamos da sua permissão para acessar o microfone. Fique em um lugar silencioso e prepare uma frase curta em inglês.</p>
+        <button id="btn-permitir" class="botao-primario" type="button">Ativar microfone</button>
+      </section>
+
+      <section id="tela-gravar" class="tela" hidden>
+        <div class="visualizador">
+          <canvas id="onda" width="480" height="120"></canvas>
+        </div>
+        <div class="cronometro" id="cronometro">00:00</div>
+        <button id="btn-gravar" class="botao-mic" type="button" aria-label="Iniciar gravação">
+          <span class="pulso" aria-hidden="true"></span>
+          <span class="icone" aria-hidden="true">🎤</span>
+        </button>
+        <p class="dica" id="dica-gravar">Toque no microfone para começar a gravar</p>
+      </section>
+
+      <section id="tela-analisar" class="tela" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <h2>Transcrevendo sua fala...</h2>
+        <p>Estamos usando o Whisper para entender o que você disse. Isso pode levar alguns segundos.</p>
+      </section>
+
+      <section id="tela-resultado" class="tela" hidden>
+        <div class="icone-etapa icone-sucesso">✅</div>
+        <h2>O que você disse</h2>
+        <p id="texto-transcrito" class="texto-transcrito"></p>
+
+        <div id="area-feedback" class="area-feedback" hidden>
+          <h3>Ouça a pronúncia nativa</h3>
+          <audio id="audio-feedback" controls autoplay></audio>
+        </div>
+
+        <div class="acoes-resultado">
+          <button id="btn-tentar-novamente" class="botao-primario" type="button">Gravar novamente</button>
+        </div>
+      </section>
+
+      <p id="erro" class="erro" hidden></p>
+    </main>
+  </div>
 
   <script src="app.js"></script>
 </body>
